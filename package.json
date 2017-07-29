@@ -1,0 +1,35 @@
+{
+  "name": "smooth-scroll-module",
+  "version": "1.0.0",
+  "description": "Smooth scroll to a target element using ES6.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianbusko/smooth-scroll-module.git"
+  },
+  "keywords": [
+    "scrolling",
+    "es6",
+    "smooth"
+  ],
+  "author": "Ian Busko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ianbusko/smooth-scroll-module/issues"
+  },
+  "homepage": "https://github.com/ianbusko/smooth-scroll-module#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1",
+    "gulp-autopolyfiller": "^1.2.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-watch": "^4.3.10",
+    "less": "^2.7.1",
+    "less-plugin-autoprefix": "^1.5.1"
+  }
+}
