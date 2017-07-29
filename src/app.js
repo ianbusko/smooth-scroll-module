@@ -15,8 +15,11 @@ class ScrollModule{
   }
 
   scrollTo(target, instant){
+
     if (typeof target === 'object'){
       this.distance = this.settings.offset + target.getBoundingClientRect().top;
+    } else if (typeof target === 'string'){
+      this.distance = this.settings.offset + document.querySelector(target).getBoundingClientRect().top;
     } else{
       this.distance = target;
     }
