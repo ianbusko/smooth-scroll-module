@@ -23,5 +23,8 @@
   "homepage": "https://github.com/ianbusko/smooth-scroll-module#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-autopolyfiller": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-watch": "^4.3.10",
   }
 }
