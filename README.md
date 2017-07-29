@@ -53,12 +53,13 @@ The duration is the number of milliseconds that scrollTo() operation will last u
 
 `ScrollModule.scrollTo(target, [instant])`
 
-The scrollTo method is used to scroll smoothly to the specified target. As of version 1.0.0, the target must be a JavaScript DOM selector. The smooth scrolling will take place over the amount of time specified by the `duration` parameter using the `easing` function to define its easing curve. Upon completion, it will execute the `callback` function.
+The scrollTo method is used to scroll smoothly to the specified target. The smooth scrolling will take place over the amount of time specified by the `duration` parameter using the `easing` function to define its easing curve. Upon completion, it will execute the `callback` function.
 
-The `instant` parameter is an optional boolean flag. If it is true, `duration` will be ignored and the scroll will complete immediately. 
+The `target` parameter must be a JavaScript DOM selector, a valid selector string, or an integer value for the amount of distance to scroll.
+
+The `instant` parameter is an optional boolean flag. If it is true, `duration` will be ignored and the scroll will complete immediately.
 
 ## Future Plans
 
 1. ScrollTo should return a promise when scrolling is complete instead of executing a callback.
 2. Instant will be removed as a parameter of .scrollTo() and instead will be its own method.
-3. Allow .scrollTo() to supply a selector string as a target.
