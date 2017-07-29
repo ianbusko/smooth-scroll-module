@@ -14,7 +14,7 @@ class ScrollModule{
     this.timeElapsed;
   }
 
-  scrollTo(target, instant){
+  scrollTo(target, instant = false){
 
     if (typeof target === 'object'){
       this.distance = this.settings.offset + target.getBoundingClientRect().top;
