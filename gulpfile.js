@@ -13,14 +13,13 @@ gulp.task('build', function () {
 });
 
 gulp.task('minify', function(cb){
-  gulp.src(['dist/*.js', '!dist/*.min.js'])
+  return gulp.src(['dist/*.js', '!dist/*.min.js'])
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist'))
 });
 
 gulp.task('watch', ['build', 'minify'], function () {
-    livereload.listen();
     gulp.watch('./src/*.js', ['build']);
 });
 
