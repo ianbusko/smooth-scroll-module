@@ -1,7 +1,7 @@
 class ScrollModule{
   constructor(options){
     this.settings = Object.assign({
-      easing: this._easeInOutQuad,
+      easing: this._easing,
       offset: 0,
       duration: 400,
     }, options);
@@ -48,7 +48,7 @@ class ScrollModule{
     resolve();
   }
 
-  _easeInOutQuad(t, b, c, d) {
+  _easing(t, b, c, d) {
     t /= d / 2;
     if (t < 1) return c / 2 * t * t + b;
     t--;
