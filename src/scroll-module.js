@@ -2,7 +2,6 @@ class ScrollModule{
   constructor(options){
     this.settings = Object.assign({
       easing: this._easeInOutQuad,
-      callback: function(){},
       offset: 0,
       duration: 400,
     }, options);
@@ -15,7 +14,6 @@ class ScrollModule{
   }
 
   scrollTo(target, instant = false){
-
     if (typeof target === 'object'){
       this.distance = this.settings.offset + target.getBoundingClientRect().top;
     } else if (typeof target === 'string'){
@@ -27,28 +25,27 @@ class ScrollModule{
     this.start = window.pageYOffset;
     this.duration = instant ? 0 : this.settings.duration;
 
-    requestAnimationFrame((time) => {
-      this.timeStart = time;
-      this._loop(time);
+    return new Promise((resolve, reject) => {
+      requestAnimationFrame((time) => {
+        this.timeStart = time;
+        this._loop(time, resolve);
+      });
     });
   }
 
-  _loop(time){
+  _loop(time, resolve){
     this.timeElapsed = time - this.timeStart;
-
     window.scrollTo(0, this.settings.easing(this.timeElapsed, this.start, this.distance, this.duration));
 
     if (this.timeElapsed < this.duration)
-      requestAnimationFrame((time) => this._loop(time));
+      requestAnimationFrame((time) => this._loop(time, resolve));
     else
-      this._end();
+      this._end(resolve);
   }
 
-  _end(){
+  _end(resolve){
     window.scrollTo(0, this.start + this.distance);
-
-    if (typeof this.settings.callback === 'function')
-      this.settings.callback();
+    resolve();
   }
 
   _easeInOutQuad(t, b, c, d) {
