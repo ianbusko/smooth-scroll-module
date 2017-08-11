@@ -17,8 +17,7 @@ Initialize the module like this:
 ## Configuration
 ```javascript
 new ScrollModule({
-  easing: this._easeInOutQuad,
-  callback: function(){},
+  easing: this._easing,
   offset: 0,
   duration: 400,
 });
@@ -37,10 +36,6 @@ function _easeInOutQuad(t, b, c, d) {
 }
 ```
 
-`callback`
-
-The callback is a function that will be called when the scrollTo() function is complete.
-
 `offset`
 
 The offset is the number of pixels from the top of the target that scroll will end on.
@@ -53,12 +48,8 @@ The duration is the number of milliseconds that scrollTo() operation will last u
 
 `ScrollModule.scrollTo(target, [instant = false])`
 
-The scrollTo method is used to scroll smoothly to the specified target. The smooth scrolling will take place over the amount of time specified by the `duration` parameter using the `easing` function to define its easing curve. Upon completion, it will execute the `callback` function.
+The scrollTo method is used to scroll smoothly to the specified target. The smooth scrolling will take place over the amount of time specified by the `duration` parameter using the `easing` function to define its easing curve. This method returns a promise when scrolling is complete.
 
 The `target` parameter must be a JavaScript DOM selector, a valid selector string, or an integer value for the amount of distance to scroll.
 
 The `instant` parameter is an optional boolean flag. If it is true, `duration` will be ignored and the scroll will complete immediately.
-
-## Future Plans
-
-1. ScrollTo should return a promise when scrolling is complete instead of executing a callback.
