@@ -18,6 +18,7 @@ export default class{
     this.start = window.pageYOffset;
     this.duration = instant ? 0 : this.settings.duration;
 
+    // The promise will resolve when the scroll has reached its endpoint.
     return new Promise((resolve, reject) => {
       requestAnimationFrame((time) => {
         this.timeStart = time;
@@ -49,11 +50,13 @@ export default class{
       this._end(resolve);
   }
 
+  // When the time is up, scroll to the final endpoint and then resolve the promise.
   _end(resolve){
     window.scrollTo(0, this.start + this.distance);
     resolve();
   }
 
+  // Easing function. This one is borrowed from JQuery UI.
   _easing(t, b, c, d) {
     t /= d / 2;
     if (t < 1) return c / 2 * t * t + b;
