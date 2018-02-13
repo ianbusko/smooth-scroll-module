@@ -14,14 +14,7 @@ export default class{
   }
 
   scrollTo(target, instant = false){
-    if (typeof target === 'object'){
-      this.distance = this.settings.offset + target.getBoundingClientRect().top;
-    } else if (typeof target === 'string'){
-      this.distance = this.settings.offset + document.querySelector(target).getBoundingClientRect().top;
-    } else{
-      this.distance = target;
-    }
-
+    this.distance = this._getDistance(target);
     this.start = window.pageYOffset;
     this.duration = instant ? 0 : this.settings.duration;
 
@@ -31,6 +24,19 @@ export default class{
         this._loop(time, resolve);
       });
     });
+  }
+
+  _getDistance(target){
+    if (typeof target === 'object'){
+    // if the target is a DOM element
+       return this.settings.offset + target.getBoundingClientRect().top;
+    } else if (typeof target === 'string'){
+    // if the target is a selector
+      return this.settings.offset + document.querySelector(target).getBoundingClientRect().top;
+    } else{
+    // if the target is a distance
+      return target;
+    }
   }
 
   _loop(time, resolve){
