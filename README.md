@@ -2,6 +2,10 @@
 
 A simple module that allows smooth scrolling to a specified element.
 
+## New in Version 2
+
+Scroll Module is now in an ES6 module. You'll need to load it using a module tag or using WebPack.
+
 ## Basic Setup
 
 Initialize the module like this:
@@ -15,6 +19,7 @@ Initialize the module like this:
 ```
 
 ## Configuration
+
 ```javascript
 new ScrollModule({
   easing: this._easing,
