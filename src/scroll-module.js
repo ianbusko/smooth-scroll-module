@@ -1,4 +1,4 @@
-class ScrollModule{
+export default class{
   constructor(options){
     this.settings = Object.assign({
       easing: this._easing,
